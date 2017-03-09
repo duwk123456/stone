@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.portalmgr.product.dao.ProductDao">
+    <select id="getProductList" resultType="Product" parameterType="ProductVo">
+        select *
+        from t_product a
+        where 1=1
+        <if test="price!=null and price!=''">
+            and  a.price &gt; #{price}
+        </if>
+        <if test="shape!=null and shape!=''">
+            and  a.shape like  "%"#{shape}"%"
+        </if>
+        limit #{beginRowNum},#{rows}
+    </select>
+
+    <select id="getProductCnt" resultType="int" parameterType="ProductVo">
+        select count(*)
+        from t_product a
+        where 1=1
+        <if test="price!=null and price!=''">
+            and  a.price &gt; #{price}
+        </if>
+        <if test="shape!=null and shape!=''">
+            and  a.shape like  "%"#{shape}"%"
+        </if>
+    </select>
+
+
+
+    <select id="findProduct" resultType="Product" parameterType="ProductVo">
+        select * from t_product
+        where 1=1  and  product_id=#{productId}
+    </select>
+
+    <insert id="addProduct"  parameterType="Product">
+        INSERT INTO `t_product` ( `width`, `height`, `length`, `shape`,`price`)
+        VALUES ( #{width}, #{height}, #{length}, #{shape},#{price})
+    </insert>
+
+    <update id="updateProduct"  parameterType="Product">
+       UPDATE `t_product` set price=#{price}
+       WHERE `product_id`=#{productId};
+    </update>
+
+    <insert id="addInventory"  parameterType="Product">
+        INSERT INTO `t_inventory` ( `width`, `height`, `length`, `shape`, `price`, `num`) VALUES
+        (#{width}, #{height}, #{length}, #{shape}, #{price}, 0)
+    </insert>
+
+
+    <select id="isExistProduct" parameterType="Product" resultType="Product">
+        select * from t_product where width=#{width}
+        and height=#{height} and length =#{length} and shape=#{shape}
+    </select>
+    
+   
+</mapper>

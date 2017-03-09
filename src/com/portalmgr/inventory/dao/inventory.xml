@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.portalmgr.inventory.dao.InventoryDao">
+    <select id="getInventoryList" resultType="Inventory" parameterType="InventoryVo">
+        select *
+        from t_inventory a
+        where 1=1
+        <if test="price!=null and price!=''">
+            and  a.price &gt; #{price}
+        </if>
+        <if test="shape!=null and shape!=''">
+            and  a.shape like  "%"#{shape}"%"
+        </if>
+        limit #{beginRowNum},#{rows}
+    </select>
+
+
+    <select id="getInventoryCount" resultType="int" parameterType="InventoryVo">
+        select count(*)
+        from t_inventory a
+        where 1=1
+        <if test="price!=null and price!=''">
+            and  a.price &gt; #{price}
+        </if>
+        <if test="shape!=null and shape!=''">
+            and  a.shape like  "%"#{shape}"%"
+        </if>
+
+    </select>
+
+
+    <select id="findInventory" resultType="Inventory" parameterType="InventoryVo">
+        select * from t_inventory
+        where 1=1  and  inventory_id=#{inventoryId}
+    </select>
+
+
+
+    <!-- 更新库存  -->
+    <update id="updateInventory"  parameterType="Inventory">
+
+
+        <foreach collection="beans" item="item" index="index" open="" close="" separator=";" >
+            UPDATE `t_inventory` set num=#{item.num}
+            WHERE `inventory_id`=#{item.inventoryId}
+
+        </foreach>
+    </update>
+
+
+    
+   
+</mapper>

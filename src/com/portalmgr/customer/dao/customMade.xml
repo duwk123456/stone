@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.portalmgr.customer.dao.CustomMadeDao">
+    <select id="getCustomMadeList" resultType="CustomMade" parameterType="CustomMadeVo">
+        SELECT
+        a.custom_made_id,
+        a.width,
+        a.height,
+        a.length,
+        a.shape,
+        b.user_name,
+        DATE_FORMAT(a.create_time,'%Y-%m-%d %H:%i:%s') create_time,
+        DATE_FORMAT(a.modify_time,'%Y-%m-%d %H:%i:%s') modify_time
+        FROM
+        t_custom_made a
+        LEFT JOIN sm_user b ON a.create_user_id = b.user_id
+        where 1=1
+        <if test="userId!=null and userId!=''">
+            and  a.create_user_id = #{userId}
+        </if>
+        <if test="shape!=null and shape!=''">
+            and  a.shape like  "%"#{shape}"%"
+        </if>
+        limit #{beginRowNum},#{rows}
+    </select>
+
+
+    <select id="getCustomMadeCnt" resultType="int" parameterType="CustomMadeVo">
+        select count(*)
+        from t_custom_made a
+        where 1=1
+        <if test="userId!=null and userId!=''">
+            and  a.create_user_id = #{userId}
+        </if>
+        <if test="shape!=null and shape!=''">
+            and  a.shape like  "%"#{shape}"%"
+        </if>
+
+    </select>
+
+
+    <select id="findCustomMade" resultType="CustomMade" parameterType="CustomMadeVo">
+        select * from t_custom_made
+        where 1=1  and  custom_made_id=#{customMadeId}
+    </select>
+
+
+
+
+    <update id="updateCustomMade"  parameterType="CustomMade">
+        UPDATE `t_custom_made`
+        SET  `width`=#{width},
+        `height`=#{height}, `length`=#{length}, `shape`=#{shape},
+         `modify_time`=now()
+        WHERE (`custom_made_id`=#{customMadeId});
+    </update>
+
+    <insert id="addCustomMade" parameterType="CustomMade">
+        INSERT INTO `t_custom_made` (`width`, `height`, `length`, `shape`, `create_user_id`, `create_time`)
+        VALUES (#{width}, #{height}, #{length}, #{shape}, #{createUserId}, now());
+    </insert>
+
+    
+   
+</mapper>

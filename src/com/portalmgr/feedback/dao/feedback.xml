@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.portalmgr.feedback.dao.FeedBackDao">
+    <select id="getFeedBackList" resultType="FeedBack" parameterType="FeedBackVo">
+        select a.feedback_id,a.feedback_content,su.user_name,
+        DATE_FORMAT(a.create_time,'%Y-%m-%d %H:%i:%s') create_time,
+        DATE_FORMAT(a.modify_time,'%Y-%m-%d %H:%i:%s') modify_time
+        from t_feedback a
+        LEFT  join sm_user su on a.create_user_id = user_id
+        where 1=1
+        <if test="feedbackContent!=null and feedbackContent!=''">
+            and  a.feedback_content like  "%"#{feedbackContent}"%"
+        </if>
+        <if test="beginTime!=null and beginTime!=''">
+            and  a.create_time &gt; STR_TO_DATE(#{beginTime}, '%Y-%m-%d %H:%i:%s')
+        </if>
+        <if test="endTime!=null and endTime!=''">
+            and  a.create_time &lt; STR_TO_DATE(#{endTime}, '%Y-%m-%d %H:%i:%s')
+        </if>
+        <if test="userId!=null and userId!=''">
+            and  a.create_user_id = #{userId}
+        </if>
+
+        limit #{beginRowNum},#{rows}
+    </select>
+
+    <select id="getFeedBackCnt" resultType="int" parameterType="FeedBackVo">
+        select count(*)
+        from t_feedback a
+        where 1=1
+        <if test="feedbackContent!=null and feedbackContent!=''">
+            and  a.feedback_content like  "%"#{feedbackContent}"%"
+        </if>
+        <if test="beginTime!=null and beginTime!=''">
+            and  a.create_time &gt; STR_TO_DATE(#{beginTime}, '%Y-%m-%d %H:%i:%s')
+        </if>
+        <if test="endTime!=null and endTime!=''">
+            and  a.create_time &lt; STR_TO_DATE(#{endTime}, '%Y-%m-%d %H:%i:%s')
+        </if>
+        <if test="userId!=null and userId!=''">
+            and  a.create_user_id = #{userId}
+        </if>
+    </select>
+
+
+    <select id="findFeedBack" resultType="FeedBack" parameterType="FeedBackVo">
+        select DATE_FORMAT(a.create_time,'%Y-%m-%d %H:%i:%s') create_time,feedback_id,feedback_content from t_feedback
+        where 1=1  and  feedback_id=#{feedbackId}
+    </select>
+
+    <select id="addFeedBack"  parameterType="FeedBack">
+        INSERT INTO `t_feedback` ( `feedback_content`, `create_user_id`, `create_time`) VALUES
+         (#{feedbackContent}, #{createUserId}, now())
+
+    </select>
+
+
+    <select id="updateFeedBack"  parameterType="FeedBack">
+       UPDATE `t_feedback` SET  `modify_time`=now()
+       <if test="feedbackContent!='' and feedbackContent!=null ">
+           ,feedback_content =#{feedbackContent}
+       </if>
+        WHERE `feedback_id`=#{feedbackId};
+    </select>
+
+
+    
+   
+</mapper>
