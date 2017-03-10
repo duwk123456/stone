@@ -17,7 +17,16 @@ public class UserInfo {
 	private String  modifyTime;
 	private String  userType;
 	private String  addr;
+	private String status;
 
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 	public int getUserId() {
 		return userId;
