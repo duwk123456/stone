@@ -64,7 +64,7 @@
                 <a class="one">账户管理</a>
                 <ul class="kid">
                     <li><b class="tip"></b><a target="Conframe" href="updateInfo.jsp">信息修改</a></li>
-                    <li><b class="tip"></b><a target="Conframe" href="registerClerk.jsp">注册店员</a></li>
+                    <li><b class="tip"></b><a target="Conframe" href="modifyPwd.jsp">密码修改</a></li>
                 </ul>
             </div>
             <div>

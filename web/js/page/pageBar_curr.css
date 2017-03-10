@@ -5,12 +5,12 @@
 .table_btn_l{float: left;overflow: auto}
 .table_btn_l>ul{overflow: auto;}
 .table_btn_l>ul>li{float: left;margin-left: 11px;}
-.table_btn_r{float: right;padding-bottom: 10px;  font-size: 14px;}
+.table_btn_r{float: right;padding-bottom: 10px;  font-size: 17px;}
 .table_btn_r>ul{overflow: auto;float:left;margin-left: 10px;}
 .table_btn_r>span.skip{float: left;vertical-align: middle;margin: 4px 0px 0px 5px;}
-.table_btn_r>input{float: left;margin:  10px 5px 0px 5px;}
+.table_btn_r>input{float: left;margin:  7px 5px 0px 5px;}
 .table_btn_r>.small_btn_l{ margin-top: 0px; }
-.table_btn_r>ul>li{float: left;  padding: 14px 5px 5px 0px;/* background: #d4f2ec;color: #56bdaa; */ color: #4caf50;margin-left: 2px;cursor: pointer;font-size: 14px; list-style: none;}
+.table_btn_r>ul>li{float: left;  padding: 5px 5px 5px 0px;/* background: #d4f2ec;color: #56bdaa; */ color: #4caf50;margin-left: 2px;cursor: pointer;font-size: 17px; list-style: none;}
 .table_btn_r>ul>li.select_page{background: #f9aa33;color: white!important}
 .table_btn_r>ul>li:hover{/* background: #f9aa33;color: white */}
 .datagrid{border-top:1px solid #abdeda;}

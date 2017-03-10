@@ -101,8 +101,8 @@
         
        var jump = $("<span class='skip'>跳转到</span>");
        _goPageInput = $("<input type='text'>").css({
-           width: 30,
-           height: 14
+           width: 47,
+           height: 20
        }).on("keydown", _keyDownHandler);
         go = $("<span class='btn_l f_l m_t3'><span class='btn_r'><span class='btn_c p_0'>GO</span></span></span>");
         div.append(totalObj).append(totalPageObj).append(curPageObj).append(ul);

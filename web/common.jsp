@@ -12,7 +12,10 @@
 
 %>
 <html>
+
 <head>
+    <link rel="stylesheet" type="text/css" href="../Styles/chur.css" />
+
     <title></title>
     <style>
         a {
@@ -24,6 +27,7 @@
 </body>
 <script>
     var home = "${home}";
-    home += "/sys/";
 </script>
+<script type="text/javascript" src="../Scripts/chur-alert.1.0.js"></script>
+<script src="js/biz/fui.min.js"></script>
 </html>

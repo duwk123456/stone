@@ -35,7 +35,7 @@
     </tr>
 
     <tr>
-        <td class="tdl">地址:</td>
+        <td class="tdl">薪资:</td>
         <td class="detail">
             <input id="address" type="text" class="ipt"/>
         </td>
@@ -52,6 +52,13 @@
         <td class="tdl">确认密码:</td>
         <td class="td_detail">
             <input id="surePwd" type="password" class="ipt"/></td>
+    </tr>
+    <tr>
+        <td class="tdl">职位:</td>
+        <td class="detail">
+           <select id="job" style="width:181px"></select>
+        </td>
+
     </tr>
     <tr>
         <td colspan="6" style="text-align: center;padding: 10px">

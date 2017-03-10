@@ -19,6 +19,7 @@
     <link rel="stylesheet" type="text/css" href="Styles/base.css"/>
     <link rel="stylesheet" type="text/css" href="Styles/ui-lightness/jquery-ui-1.8.22.custom.css"/>
     <link rel="stylesheet" type="text/css" href="Styles/formui.css"/>
+    <link rel="stylesheet" type="text/css" href="js/page/pageBar_curr.css">
     <link rel="stylesheet" type="text/css" href="js/layer/skin/layer.css">
 
     <style type="text/css">
@@ -37,48 +38,57 @@
 <body>
 <jsp:include page="common.jsp"></jsp:include>
 <div class="alert alert-info">当前位置<b class="tip"></b>人事档案管理<b class="tip"></b>人事档案</div>
+
+
 <table class="tbform">
-
-    <tbody>
+    <thead>
+    <tr>
+        <td  class="auto-style2">&nbsp;查询条件</td>
+    </tr>
+    </thead>
+    <tr>
+        <td class="tdl">姓名:</td>
+        <td class="detail">
+            <input type="text" class="ipt" id="userName"/>
+        </td>
+        <td class="tdl">电话:</td>
+        <td class="td_detail">
+            <input type="text" class="ipt"  id="tel"/></td>
+    </tr>
 
     <tr>
-        <td>姓名</td>
-        <td>电话</td>
-        <td>工资(月)</td>
-        <td>职务</td>
-        <td></td>
-
+        <td colspan="6" style="text-align: center;padding: 10px">
+            <input id="sure" class="btn" type="button" value="查询"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <%--<input id="add" class="btn" type="button" value="添加"/>--%>
+            <a id="add" class="btn" target="Conframe" href="registerClerk.jsp">注册店员</a>
+        </td>
     </tr>
-    <tr>
-        <td>某某某</td>
-        <td>13500000000</td>
-        <td>4000.0</td>
-        <td><input type="text" style="width: 100px;"></td>
-        <td><a href="">修改</a></td>
-
-
-    </tr>
-    <tr>
-        <td>某某某</td>
-        <td>13500000000</td>
-        <td>4000.0</td>
-        <td><input type="text" style="width: 100px;"></td>
-        <td><a href="">修改</a></td>
-
-    </tr>
-    <tr>
-        <td>某某某</td>
-        <td>13500000000</td>
-        <td>4000.0</td>
-        <td><input type="text" style="width: 100px;"></td>
-        <td><a href="">修改</a></td>
-    </tr>
-    </tbody>
 
 </table>
 
+
+<table class="tbform" style="TABLE-LAYOUT: fixed;WORD-WRAP:break_word;width: 100%">
+
+    <thead>
+    <tr>
+        <td class="tdl">用户名</td>
+        <td class="tdl">姓名</td>
+        <td class="tdl">电话</td>
+        <td class="tdl">工资(月)</td>
+        <td class="tdl">职务</td>
+        <td class="tdl">操作</td>
+
+    </tr>
+    </thead>
+    <tbody id="tbody">
+
+    </tbody>
+</table>
+<div id="pageBar"  style="padding-left: 20%; text-align: center;width: 50%;"></div>
 </body>
 <script src="Scripts/jquery-1.7.2.js"></script>
 <script src="js/biz/common.js"></script>
-<script src="js/biz/stoneOrder.js"></script>
+<script src="js/page/pageBar_curr.js"></script>
+<script src="js/biz/personManger.js"></script>
 </html>

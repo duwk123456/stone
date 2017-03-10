@@ -11,7 +11,7 @@ var getTimestamp = function () {
 };
 
 var requestUrl = {
-    login: "login.forward?getTimestamp=" + getTimestamp()
+    login: "/sys/login.forward?getTimestamp=" + getTimestamp()
 };
 function requestData(param) {
 

@@ -25,24 +25,31 @@
     <tr>
         <td class="tdl">登录名:</td>
         <td class="detail">
-            <input type="text" class="ipt"/>
+            <input type="text" class="ipt" id="loginName" disabled="disabled"/>
         </td>
         <td class="tdl">电话:</td>
         <td class="td_detail">
-            <input type="text" class="ipt"/></td>
+            <input type="text" class="ipt" id="tel"/></td>
     </tr>
 
     <tr>
-        <td class="tdl">地址:</td>
-        <td class="detail">
-            <input type="text" class="ipt"/>
-        </td>
         <td class="tdl">姓名:</td>
         <td class="td_detail">
-            <input type="text" class="ipt"/></td>
+            <input type="text" class="ipt" id="userName"/></td>
+
+        <td class="tdl job_cls">职位:</td>
+        <td class="detail job_cls">
+            <input type="text" class="ipt"  id="jobName" disabled="disabled"/>
+        </td>
+
+        <td class="tdl addr_cls">地址:</td>
+        <td class="detail addr_cls">
+            <input type="text" class="ipt" id="addr"/>
+        </td>
+
     </tr>
 
-    <tr>
+<%--    <tr>
         <td class="tdl">密码:</td>
         <td class="detail">
             <input type="password" class="ipt"/>
@@ -50,7 +57,7 @@
         <td class="tdl">确认密码:</td>
         <td class="td_detail">
             <input type="password" class="ipt"/></td>
-    </tr>
+    </tr>--%>
     <tr>
         <td colspan="6" style="text-align: center;padding: 10px">
             <input id="sure" class="btn" type="button" value="确定"/>
@@ -64,7 +71,21 @@
 
 </body>
 <script type="text/javascript" src="Scripts/jquery-1.7.2.js"></script>
+<script src="js/biz/fui.min.js"></script>
 <script type="text/javascript" src="Scripts/jquery-ui-1.8.22.custom.min.js"></script>
 <script type="text/javascript" src="Scripts/tb.js"></script>
 <script src="js/biz/common.js"></script>
+<script>
+  var userId = $.fui.store.get("userId");
+
+  var userType = $.fui.store.get("userType");
+    if(userType==3){
+        $(".job_cls").css("display","none");
+    }
+    if(userType==2||userType==1){
+        $(".addr_cls").css("display","none");
+    }
+
+</script>
+<script src="js/biz/updateUser.js"></script>
 </html>

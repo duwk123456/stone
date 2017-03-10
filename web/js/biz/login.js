@@ -44,8 +44,10 @@ function bindClick() {
                     if (result.success) {
                         userId = result.data.userId;
                         userName = result.data.userName;
+                        userType = result.data.userType;
                         $.fui.store.set("userId", userId);
                         $.fui.store.set("userName", userName);
+                        $.fui.store.set("userType", userType);
                         window.location.href = "index.jsp";
                     }
                     else {
