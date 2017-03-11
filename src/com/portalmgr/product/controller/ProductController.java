@@ -103,7 +103,20 @@ public class ProductController {
         }
         GsonTools.writeJsonObj(response, resultEntity);
     }
-
+    @RequestMapping(value="/del")
+    public void  del(HttpServletRequest request,HttpServletResponse response,Product product){
+        ResultEntity resultEntity = new ResultEntity();
+        try{
+            productService.del(product);
+            resultEntity.setMsg("删除成功");
+            resultEntity.setSuccess(true);
+        }catch(Exception e){
+            e.printStackTrace();
+            resultEntity.setSuccess(false);
+            resultEntity.setMsg("服务异常");
+        }
+        GsonTools.writeJsonObj(response, resultEntity);
+    }
 
 
 

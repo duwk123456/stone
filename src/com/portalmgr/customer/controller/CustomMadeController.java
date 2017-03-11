@@ -9,7 +9,6 @@ import com.portalmgr.util.GsonTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,8 +27,8 @@ public class CustomMadeController{
     private CustomMadeService customMadeService;
 
     @RequestMapping(value="/getCustomMadeList")
-    @ResponseBody
-    public ResultEntity  getCustomMadeList(HttpServletRequest request,HttpServletResponse response,CustomMadeVo customMadeVo){
+   // @ResponseBody
+    public void  getCustomMadeList(HttpServletRequest request,HttpServletResponse response,CustomMadeVo customMadeVo){
         ResultEntity resultEntity = new ResultEntity();
         try{
             customMadeVo.setStartRow();
@@ -44,8 +43,8 @@ public class CustomMadeController{
             resultEntity.setSuccess(false);
             resultEntity.setMsg("服务异常");
         }
-        return resultEntity;
-        //GsonTools.writeJsonObj(response, resultEntity);
+       // return resultEntity;
+        GsonTools.writeJsonObj(response, resultEntity);
     }
 
 
@@ -96,6 +95,19 @@ public class CustomMadeController{
         }
         GsonTools.writeJsonObj(response, resultEntity);
     }
-
+    @RequestMapping(value="/del")
+    public void  del(HttpServletRequest request,HttpServletResponse response,CustomMadeVo customMadeVo){
+        ResultEntity resultEntity = new ResultEntity();
+        try{
+            customMadeService.del(customMadeVo);
+            resultEntity.setMsg("删除成功");
+            resultEntity.setSuccess(true);
+        }catch(Exception e){
+            e.printStackTrace();
+            resultEntity.setSuccess(false);
+            resultEntity.setMsg("服务异常");
+        }
+        GsonTools.writeJsonObj(response, resultEntity);
+    }
 
 }

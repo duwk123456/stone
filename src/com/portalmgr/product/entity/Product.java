@@ -3,7 +3,7 @@ package com.portalmgr.product.entity;
 /**
  * Created by Administrator on 2017/2/28.
  */
-public class Product {
+public class Product extends BaseInfo{
 
     private String productId;
 

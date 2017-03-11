@@ -51,4 +51,8 @@ public class ProductService {
     public int getProductCnt(ProductVo productVo) {
         return productDao.getProductCnt(productVo);
     }
+
+    public void del(Product product) {
+        productDao.del(product);
+    }
 }

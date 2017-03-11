@@ -39,4 +39,9 @@ public class CustomMadeService {
     public void addCustomMade(CustomMade customMade){
          customMadeDao.addCustomMade(customMade);
     }
+
+    public void del(CustomMadeVo customMadeVo) {
+        customMadeDao.del(customMadeVo);
+
+    }
 }

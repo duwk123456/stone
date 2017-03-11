@@ -26,4 +26,6 @@ public interface ProductDao {
     void updateProduct(Product product);
 
     int getProductCnt(ProductVo productVo);
+
+    void del(Product product);
 }

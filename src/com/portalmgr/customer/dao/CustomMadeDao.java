@@ -22,4 +22,6 @@ public interface CustomMadeDao {
     void updateCustomMade(CustomMade customMade);
 
     void addCustomMade(CustomMade customMade);
+
+    void del(CustomMadeVo customMadeVo);
 }

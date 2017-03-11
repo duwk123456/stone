@@ -43,6 +43,11 @@
        WHERE `product_id`=#{productId};
     </update>
 
+    <delete id="del"  parameterType="Product">
+        DELETE from  `t_product`
+        WHERE `product_id`=#{productId};
+    </delete>
+
     <insert id="addInventory"  parameterType="Product">
         INSERT INTO `t_inventory` ( `width`, `height`, `length`, `shape`, `price`, `num`) VALUES
         (#{width}, #{height}, #{length}, #{shape}, #{price}, 0)
