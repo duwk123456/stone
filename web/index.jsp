@@ -57,7 +57,7 @@
                 <a class="one">石材定制</a>
                 <ul class="kid">
                     <li><b class="tip"></b><a target="Conframe" href="customMade.jsp">添加定制</a></li>
-                    <li><b class="tip"></b><a target="Conframe" href="Template/order.html">石材定制列表</a></li>
+                    <li><b class="tip"></b><a target="Conframe" href="customMadeList.jsp">石材定制列表</a></li>
                 </ul>
             </div>
             <div>
@@ -78,6 +78,7 @@
                 <a class="one">样品资料管理</a>
                 <ul class="kid">
                     <li><b class="tip"></b><a target="Conframe" href="addSample.jsp">添加样品</a></li>
+                    <li><b class="tip"></b><a target="Conframe" href="sampleList.jsp">样品列表</a></li>
                 </ul>
             </div>
             <%--<div id="datepicker"></div>--%>

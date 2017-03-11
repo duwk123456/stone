@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="Styles/formui.css"/>
     <link rel="stylesheet" type="text/css" href="js/layer/skin/layer.css">
 
+
     <style type="text/css">
         td {
             /*padding: 10px 20px;*/
@@ -34,56 +35,50 @@
 <jsp:include page="common.jsp"></jsp:include>
 <div class="alert alert-info">当前位置<b class="tip"></b>样品资料管理<b class="tip"></b>添加样品</div>
 <table class="tbform">
-    <tbody>
-    <tr>
 
-        <td>形状</td>
-        <td>宽度(m)</td>
-        <td>长度(m)</td>
-        <td>高度(m)</td>
-        <td>价格</td>
-        <td></td>
-    </tr>
+        <thead>
+        <tr>
+            <td  class="auto-style2">&nbsp;请填写样品信息</td>
+        </tr>
+        </thead>
+        <tr>
+            <td class="tdl">形状:</td>
+            <td class="detail">
+                <input type="text" class="ipt" id="shape"/>
+            </td>
+            <td class="tdl">长度(m):</td>
+            <td class="td_detail">
+                <input type="text" class="ipt" oninput="isNum($(this),1, false)" id="length"/></td>
+        </tr>
 
+        <tr>
+            <td class="tdl">高度(m):</td>
+            <td class="detail">
+                <input type="text" class="ipt" oninput="isNum($(this),1, false)" id="height"/>
+            </td>
+            <td class="tdl">宽度(m):</td>
+            <td class="td_detail">
+                <input  type="text" class="ipt" oninput="isNum($(this),1, false)" id="width"/></td>
+        </tr>
     <tr>
-        <td><input type="text" value="圆形"></td>
-        <td><input type="number" value="10.1" style="width:100px;" oninput="isNum($(this),1, false) "></td>
-        <td><input type="number" value="1.1" style="width:100px;" oninput="isNum($(this),1, false)"></td>
-        <td><input type="number" value="9.1" style="width:100px;" oninput="isNum($(this),1, false)"></td>
+        <td class="tdl">价格:</td>
         <td>
-            <input type="number" value="110.01" style="width:100px;" oninput="isNum($(this),2, false)">
+            <input type="text" id="price"  oninput="isNum($(this),2, false)">
         </td>
-        <td><a href="">删除</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a>修改</a></td>
 
     </tr>
-    <tr>
-        <td><input type="text" value="圆形"></td>
-        <td><input type="number" value="10.1" style="width:100px;" oninput="isNum($(this),1, false) "></td>
-        <td><input type="number" value="1.1" style="width:100px;" oninput="isNum($(this),1, false)"></td>
-        <td><input type="number" value="9.1" style="width:100px;" oninput="isNum($(this),1, false)"></td>
-        <td>
-            <input type="number" value="110.01" style="width:100px;" oninput="isNum($(this),2, false)">
-        </td>
-        <td><a href="">删除</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a>修改</a></td>
-
-    </tr>
-    <tr>
-        <td><input type="text" value="圆形"></td>
-        <td><input type="number" value="10.1" style="width:100px;" oninput="isNum($(this),1, false) "></td>
-        <td><input type="number" value="1.1" style="width:100px;" oninput="isNum($(this),1, false)"></td>
-        <td><input type="number" value="9.1" style="width:100px;" oninput="isNum($(this),1, false)"></td>
-        <td>
-            <input type="number" value="110.01" style="width:100px;" oninput="isNum($(this),2, false)">
-        </td>
-        <td><a href="">添加</a></td>
-
-    </tr>
-
-
-    </tbody>
+        <tr>
+            <td colspan="6" style="text-align: center;padding: 10px">
+                <input id="sure" class="btn" type="button" value="确定"/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input id="cancle" class="btn" type="button" value="取消"/>
+            </td>
+        </tr>
 
 </table>
 </body>
 <script src="Scripts/jquery-1.7.2.js"></script>
+<script src="js/layer/layer.js"></script>
 <script src="js/biz/common.js"></script>
+<script src="js/biz/addSample.js"></script>
 </html>
