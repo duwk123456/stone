@@ -2,9 +2,11 @@ package com.portalmgr.sys.controller;
 
 import com.portalmgr.common.BaseController;
 import com.portalmgr.common.ResultEntity;
+import com.portalmgr.sys.entity.DictDef;
 import com.portalmgr.sys.entity.UserInfo;
 import com.portalmgr.sys.service.UserService;
 import com.portalmgr.sys.vo.UserInfoVo;
+import com.portalmgr.util.DictDefUtil;
 import com.portalmgr.util.GsonTools;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +56,34 @@ public class UserController extends BaseController {
 		GsonTools.writeJsonObj(response, resultEntity);
 	}
 
+
+
+	@RequestMapping(value="/updatePwd")
+	public void  updatePwd(HttpServletRequest request,HttpServletResponse response,UserInfoVo userInfoVo){
+		ResultEntity resultEntity = new ResultEntity();
+		try{
+			UserInfo user=userService.findUser(userInfoVo);
+			if(user.getPassword().equals(userInfoVo.getPassword())){
+				UserInfo param = new UserInfo();
+				param.setUserId(user.getUserId());
+				param.setPassword(userInfoVo.getNewPwd());
+				userService.updateUser(param);
+				resultEntity.setMsg("密码更新成功");
+				resultEntity.setSuccess(true);
+
+			}else{
+				resultEntity.setMsg("旧密码错误，请重新输入");
+				resultEntity.setSuccess(false);
+			}
+
+		}catch(Exception e){
+			e.printStackTrace();
+			resultEntity.setSuccess(false);
+			resultEntity.setMsg("服务异常");
+		}
+		GsonTools.writeJsonObj(response, resultEntity);
+	}
+
 	/**
 	 *
 	 * @param request
@@ -84,15 +114,24 @@ public class UserController extends BaseController {
 	public void  addUser(HttpServletRequest request,HttpServletResponse response,UserInfo userInfo){
 		ResultEntity resultEntity = new ResultEntity();
 		try{
-			userService.addUser(userInfo);
-			resultEntity.setMsg("查询成功");
-			resultEntity.setSuccess(true);
-			GsonTools.writeJsonObj(response, resultEntity);
+			UserInfoVo userInfoVo = new UserInfoVo();
+			userInfoVo.setLoginName(userInfo.getLoginName());
+			UserInfo user=userService.findUser(userInfoVo);
+			if(user==null){
+				userService.addUser(userInfo);
+				resultEntity.setMsg("添加成功");
+				resultEntity.setSuccess(true);
+			}else{
+				resultEntity.setMsg("登录名已存在");
+				resultEntity.setSuccess(false);
+			}
+
 		}catch(Exception e){
 			e.printStackTrace();
 			resultEntity.setSuccess(false);
 			resultEntity.setMsg("服务异常");
 		}
+		GsonTools.writeJsonObj(response, resultEntity);
 	}
 
 
@@ -116,5 +155,23 @@ public class UserController extends BaseController {
 		}
 		GsonTools.writeJsonObj(response, resultEntity);
 	}
+
+	@RequestMapping(value="/getJob")
+	public void getJob(HttpServletRequest request,HttpServletResponse response){
+
+		ResultEntity resultEntity = new ResultEntity();
+		try{
+			List<DictDef> dictDefs = DictDefUtil.getDictDefByDictTypeDictClassFromMap("100","1001","");
+			resultEntity.setData(dictDefs);
+			resultEntity.setSuccess(true);
+		}catch(Exception e){
+			e.printStackTrace();
+			resultEntity.setSuccess(false);
+			resultEntity.setMsg("服务异常");
+		}
+		GsonTools.writeJsonObj(response, resultEntity);
+	}
+
+
 
 }

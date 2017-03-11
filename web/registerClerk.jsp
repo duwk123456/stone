@@ -37,7 +37,7 @@
     <tr>
         <td class="tdl">薪资:</td>
         <td class="detail">
-            <input id="address" type="text" class="ipt"/>
+            <input id="salary" type="text" class="ipt"/>
         </td>
         <td class="tdl">姓名:</td>
         <td class="td_detail">

@@ -48,6 +48,7 @@ public class GsonTools {
 		if (obj != null) {
 			try {
 				jsonStr = getJson(obj);
+				System.out.println(jsonStr);
 				response.getWriter().write(jsonStr);
 			} catch (Exception e) {
 				e.printStackTrace();

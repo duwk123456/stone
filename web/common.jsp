@@ -29,5 +29,6 @@
     var home = "${home}";
 </script>
 <script type="text/javascript" src="../Scripts/chur-alert.1.0.js"></script>
-<script src="js/biz/fui.min.js"></script>
+
+
 </html>

@@ -27,21 +27,21 @@
     <tr>
         <td class="tdl">形状:</td>
         <td class="detail">
-            <input type="text" class="ipt"/>
+            <input type="text" class="ipt" id="shape"/>
         </td>
         <td class="tdl">长度(m):</td>
         <td class="td_detail">
-            <input type="text" class="ipt" oninput="isNum($(this),1, false)"/></td>
+            <input type="text" class="ipt" oninput="isNum($(this),1, false)" id="length"/></td>
     </tr>
 
     <tr>
         <td class="tdl">高度(m):</td>
         <td class="detail">
-            <input type="text" class="ipt" oninput="isNum($(this),1, false)"/>
+            <input type="text" class="ipt" oninput="isNum($(this),1, false)" id="height"/>
         </td>
         <td class="tdl">宽度(m):</td>
         <td class="td_detail">
-            <input id="surePwd" type="text" class="ipt" oninput="isNum($(this),1, false)"/></td>
+            <input  type="text" class="ipt" oninput="isNum($(this),1, false)" id="width"/></td>
     </tr>
     <tr>
         <td colspan="6" style="text-align: center;padding: 10px">
@@ -54,6 +54,13 @@
 </table>
 </body>
 <script src="Scripts/jquery-1.7.2.js"></script>
-<script src="js/biz/customMade.js"></script>
 <script src="js/biz/common.js"></script>
+<script src="js/biz/fui.min.js"></script>
+<script>
+    var userId = $.fui.store.get("userId");
+    alert(userId);
+</script>
+<script src="js/biz/customMade.js"></script>
+
+
 </html>

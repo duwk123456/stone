@@ -10,11 +10,20 @@ public class UserInfoVo  extends CommBean{
 
     private String loginName;
     private String password;
+    private String newPwd;
     private String userId;
     private String userName;
     private String userType;//区分是店员还是客户
     private String addr;//客户拥有的地址属性
     private String tel;
+
+    public String getNewPwd() {
+        return newPwd;
+    }
+
+    public void setNewPwd(String newPwd) {
+        this.newPwd = newPwd;
+    }
 
     public String getUserName() {
         return userName;

@@ -28,13 +28,13 @@
 
 
     <tr>
-        <td class="tdl">原密码:</td>
+        <td class="tdl">旧密码:</td>
         <td class="detail">
             <input id="pwd" type="password" class="ipt"/>
         </td>
         <td class="tdl">新密码:</td>
         <td class="detail">
-            <input id="pwd" type="password" class="ipt"/>
+            <input id="newPwd" type="password" class="ipt"/>
         </td>
         <td class="tdl">确认密码:</td>
         <td class="td_detail">
@@ -53,9 +53,14 @@
 </table>
 </body>
 <script src="Scripts/tb.js"></script>
+
 <script src="Scripts/jquery-1.7.2.js"></script>
 <script src="Scripts/jquery-ui-1.8.22.custom.min.js"></script>
 <script src="js/layer/layer.js"></script>
 <script src="js/biz/common.js"></script>
-<script src="js/biz/registerClerk.js"></script>
+<script src="js/biz/fui.min.js"></script>
+<script>
+    var userId = $.fui.store.get("userId");
+</script>
+<script src="js/biz/modifyPwd.js"></script>
 </html>
