@@ -36,6 +36,10 @@ public class NoticeService {
         noticeDao.addNotice(notice);
 
     }
+
+    public int getNoticeCnt(NoticeVo notice) {
+        return  noticeDao.getNoticeCnt(notice);
+    }
 }
 
 

@@ -2,6 +2,7 @@ package com.portalmgr.notice.controller;
 
 import com.portalmgr.common.BaseController;
 import com.portalmgr.common.ResultEntity;
+import com.portalmgr.customer.entity.CustomMade;
 import com.portalmgr.notice.entity.Notice;
 import com.portalmgr.notice.entity.NoticeVo;
 import com.portalmgr.notice.service.NoticeService;
@@ -89,7 +90,9 @@ public class NoticeController extends BaseController {
 		ResultEntity resultEntity = new ResultEntity();
 		try{
 			notice.setStartRow();
+			int total = noticeService.getNoticeCnt(notice);
 			List<Notice> noticeList =  noticeService.getNoticeList(notice);
+			resultEntity.setProperty("total", total);
 			resultEntity.setMsg("查询成功");
 			resultEntity.setData(noticeList);
 			resultEntity.setSuccess(true);

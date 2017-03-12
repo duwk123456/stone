@@ -105,6 +105,25 @@ public class feedBackController {
         }
         GsonTools.writeJsonObj(response, resultEntity);
     }
+    /**
+     *
+     * @param request
+     * @param response
+     */
+    @RequestMapping(value="/del")
+    public void  del(HttpServletRequest request,HttpServletResponse response,FeedBackVo feedBackVo){
+        ResultEntity resultEntity = new ResultEntity();
+        try{
+            feedBackService.del(feedBackVo);
+            resultEntity.setMsg("删除成功");
+            resultEntity.setSuccess(true);
+        }catch(Exception e){
+            e.printStackTrace();
+            resultEntity.setSuccess(false);
+            resultEntity.setMsg("服务异常");
+        }
+        GsonTools.writeJsonObj(response, resultEntity);
+    }
 
 
 

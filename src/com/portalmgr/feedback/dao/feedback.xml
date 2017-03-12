@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
 <mapper namespace="com.portalmgr.feedback.dao.FeedBackDao">
     <select id="getFeedBackList" resultType="FeedBack" parameterType="FeedBackVo">
-        select a.feedback_id,a.feedback_content,su.user_name,
+        select a.feedback_id,a.feedback_content,su.user_name,a.create_user_id,
         DATE_FORMAT(a.create_time,'%Y-%m-%d %H:%i:%s') create_time,
         DATE_FORMAT(a.modify_time,'%Y-%m-%d %H:%i:%s') modify_time
         from t_feedback a
@@ -44,9 +44,12 @@
 
 
     <select id="findFeedBack" resultType="FeedBack" parameterType="FeedBackVo">
-        select DATE_FORMAT(a.create_time,'%Y-%m-%d %H:%i:%s') create_time,feedback_id,feedback_content from t_feedback
+        select DATE_FORMAT(create_time,'%Y-%m-%d %H:%i:%s') create_time,feedback_id,feedback_content from t_feedback
         where 1=1  and  feedback_id=#{feedbackId}
     </select>
+    <delete id="del" parameterType="FeedBackVo">
+        DELETE  from t_feedback   WHERE `feedback_id`=#{feedbackId}
+    </delete>
 
     <select id="addFeedBack"  parameterType="FeedBack">
         INSERT INTO `t_feedback` ( `feedback_content`, `create_user_id`, `create_time`) VALUES
@@ -60,7 +63,7 @@
        <if test="feedbackContent!='' and feedbackContent!=null ">
            ,feedback_content =#{feedbackContent}
        </if>
-        WHERE `feedback_id`=#{feedbackId};
+        WHERE `feedback_id`=#{feedbackId}
     </select>
 
 

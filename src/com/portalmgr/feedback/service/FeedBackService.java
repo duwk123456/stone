@@ -37,4 +37,8 @@ public class FeedBackService {
     public int getFeedBackCnt(FeedBackVo feedBackVo) {
         return feedBackDao.getFeedBackCnt(feedBackVo);
     }
+
+    public void del(FeedBackVo feedBackVo) {
+         feedBackDao.del(feedBackVo);
+    }
 }

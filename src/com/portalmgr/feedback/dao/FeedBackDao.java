@@ -22,4 +22,6 @@ public interface FeedBackDao {
     void addFeedBack(FeedBack feedBack);
 
     int getFeedBackCnt(FeedBackVo feedBackVo);
+
+    void del(FeedBackVo feedBackVo);
 }

@@ -21,4 +21,6 @@ public interface NoticeDao {
     List<Notice> findAllNotice(NoticeVo notice);
 
     void addNotice(Notice notice);
+
+     int getNoticeCnt(NoticeVo notice);
 }
