@@ -50,7 +50,9 @@
                 <a class="one">通知栏</a>
                 <ul class="kid">
                     <li><b class="tip"></b><a target="Conframe" href="notice.jsp">通知</a></li>
+                    <li><b class="tip"></b><a target="Conframe" href="noticeList.jsp">通知列表</a></li>
                     <li><b class="tip"></b><a target="Conframe" href="advice.jsp">意见箱</a></li>
+                    <li><b class="tip"></b><a target="Conframe" href="adviceList.jsp">意见箱列表</a></li>
                 </ul>
             </div>
             <div>

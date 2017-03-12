@@ -43,7 +43,7 @@ function showData(result,page,rows){
               	__html.push("<td>"+userList[_idx].tel+"</td>");
 				__html.push("<td>"+userList[_idx].salary+"</td>");
 				__html.push("<td>"+userList[_idx].jobName+"</td>");
-				__html.push("<td style='text-align:center;'><a href='javascript:void(0);'onclick=\"update('"+userList[_idx].userId+"');return false;\">修改</a>&nbsp;|&nbsp;");
+				__html.push("<td style='text-align:center;'><a   target='Conframe' href='userUpdate.jsp?userId="+userList[_idx].userId+"'>修改</a>&nbsp;|&nbsp;")
 				__html.push("<a href='javascript:void(0);' onclick=\"deleteData('"+userList[_idx].userId+"');return false;\">删除</a>&nbsp;");
             	__html.push("</tr>");
 			}	
@@ -80,6 +80,20 @@ function freshData(total,rows, pageNumber){
 		showData(data.results,pageNumber,rows);
 	},"json");
 	
+}
+
+function deleteData(id){
+
+
+	$.post(home+"/userController/updateUser.forward",{userId:id,status:0},function(data){
+		if(data.results.success){
+			alert(data.results.msg);
+			freshData(null,10,1);
+		}else{
+			alert(data.results.msg);
+		}
+
+	},"json");
 }
 
 

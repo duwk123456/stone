@@ -28,7 +28,6 @@
 <jsp:include page="common.jsp"></jsp:include>
 <div class="alert alert-info">当前位置<b class="tip"></b>库存管理<b class="tip"></b>库存列表</div>
 <table class="tbform">
-    <tbody>
     <tr>
         <td>形状</td>
         <td>宽度(m)</td>
@@ -38,33 +37,7 @@
         <td>当前数量</td>
 
     </tr>
-    <tr>
-
-        <td>圆形</td>
-        <td>10.1</td>
-        <td>2.0</td>
-        <td>1.2</td>
-        <td>100.0</td>
-        <td>200</td>
-    </tr>
-    <tr>
-
-        <td>圆形</td>
-        <td>10.1</td>
-        <td>2.0</td>
-        <td>1.2</td>
-        <td>100.0</td>
-        <td>200</td>
-    </tr>
-    <tr>
-
-        <td>圆形</td>
-        <td>10.1</td>
-        <td>2.0</td>
-        <td>1.2</td>
-        <td>100.0</td>
-        <td>200</td>
-    </tr>
+    <tbody>
     </tbody>
 
 </table>

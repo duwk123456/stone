@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: H81
-  Date: 2017/3/3
-  Time: 11:19
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
@@ -19,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="Styles/base.css"/>
     <link rel="stylesheet" type="text/css" href="Styles/ui-lightness/jquery-ui-1.8.22.custom.css"/>
     <link rel="stylesheet" type="text/css" href="Styles/formui.css"/>
+    <link rel="stylesheet" type="text/css" href="js/page/pageBar_curr.css">
     <link rel="stylesheet" type="text/css" href="js/layer/skin/layer.css">
 
     <style type="text/css">
@@ -47,7 +42,8 @@
         <td>宽度(m)</td>
         <td>长度(m)</td>
         <td>高度(m)</td>
-        <td>数量</td>
+        <td>库存量</td>
+        <td>采购数量</td>
         <td>单价</td>
         <td>总价格</td>
     </tr>
@@ -93,5 +89,7 @@
 </body>
 <script src="Scripts/jquery-1.7.2.js"></script>
 <script src="js/biz/common.js"></script>
+<script src="js/layer/layer.js"></script>
+<script src="js/page/pageBar_curr.js"></script>
 <script src="js/biz/stoneOrder.js"></script>
 </html>

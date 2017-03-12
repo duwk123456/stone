@@ -41,6 +41,7 @@
     </tbody>
 </table>
 
+<%--
 <table class="tbform" id="showAdvice">
     <thead>
     <tr>
@@ -59,8 +60,14 @@
     </tr>
     </tbody>
 </table>
+--%>
 </body>
 <script src="Scripts/jquery-1.7.2.js"></script>
+<script src="js/layer/layer.js"></script>
+<script src="js/biz/fui.min.js"></script>
+<script>
+    var userId = $.fui.store.get("userId");
+</script>
 <script src="js/biz/advice.js"></script>
 <script src="js/biz/common.js"></script>
 </html>

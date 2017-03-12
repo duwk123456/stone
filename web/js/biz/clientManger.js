@@ -86,4 +86,19 @@ function freshData(total,rows, pageNumber){
 	
 }
 
+function deleteData(id){
+
+
+	$.post(home+"/userController/updateUser.forward",{userId:id,status:0},function(data){
+		if(data.results.success){
+			alert(data.results.msg);
+			freshData(null,10,1);
+		}else{
+			alert(data.results.msg);
+		}
+
+	},"json");
+}
+
+
 

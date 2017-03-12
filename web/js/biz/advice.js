@@ -24,8 +24,26 @@ function bindClick() {
     });
     $("#sure").off("click").on("click", function () {
         var advice = $("#advice").val();
-    });
+        if (advice=="") {
+            dialog("内容不得为空!");
+            return false;
+        }
+        var param={};
+        param.feedbackContent=advice;
+        param.createUserId=userId
+        $.post(home+'/feedBackController/addFeedBack.forward',param,function(data){
+            if(data.results.success){
+
+                alert(data.results.msg);
+            }else{
+                alert(data.results.msg);
+            }
+
+        });
+        });
 }
+
+/*
 function loadData(data) {
     _html = [];
 
@@ -33,4 +51,4 @@ function loadData(data) {
         _html.push(" <tr> <td style='text-align: center'>" + data[i] + "</td> </tr>")
     }
     $("#showAdvicdContent").append(_html.join(""));
-}
+}*/

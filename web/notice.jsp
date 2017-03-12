@@ -45,47 +45,10 @@
     </tr>
     </tbody>
 </table>
-<table class="tbform">
-    <thead>
-    <tr>
-        <td colspan="6" class="auto-s tyle2">&nbsp;通知内容如下:</td>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td style="text-align: center">多少多少啊打撒了了</td>
-        <td style="text-align: left"><a href="">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="">删除</a></td>
-    </tr>
-    <tr>
-        <td style="text-align: center">多少多少啊打撒了了</td>
-        <td style="text-align: left"><a href="">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="">删除</a></td>
-    </tr>
-    <tr>
-        <td style="text-align: center">多少多少啊打撒了了</td>
-        <td style="text-align: left"><a href="">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="">删除</a></td>
-    </tr>
-    </tbody>
-</table>
-<table class="tbform" id="showAdvice">
-    <thead>
-    <tr>
-        <td colspan="6" class="auto-s tyle2">&nbsp;通知内容如下:</td>
-    </tr>
-    </thead>
-    <tbody id="showAdvicdContent">
-    <tr>
-        <td style="text-align: center">多少多少啊打撒了了</td>
-    </tr>
-    <tr>
-        <td style="text-align: center">多少多少啊打撒了了</td>
-    </tr>
-    <tr>
-        <td style="text-align: center">多少多少啊打撒了了</td>
-    </tr>
-    </tbody>
-</table>
+
 </body>
 <script src="Scripts/jquery-1.7.2.js"></script>
-<script src="js/biz/advice.js"></script>
+<script src="js/layer/layer.js"></script>
+<script src="js/biz/notice.js"></script>
 <script src="js/biz/common.js"></script>
 </html>
