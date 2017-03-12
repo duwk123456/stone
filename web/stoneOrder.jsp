@@ -31,10 +31,34 @@
 <table class="tbform">
     <thead>
     <tr>
-        <td colspan="12" class="auto-style2">&nbsp;请选择订购信息</td>
+        <td  class="auto-style2">&nbsp;查询条件</td>
     </tr>
     </thead>
-    <tbody>
+    <tr>
+        <td class="tdl">形状:</td>
+        <td class="detail">
+            <input type="text" class="ipt" id="shape"/>
+        </td>
+        <td class="tdl">价格</td>
+        <td class="detail">
+            <input type="text" class="ipt" id="price" oninput="isNum($(this),1, false)"/>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="6" style="text-align: center;padding: 10px">
+            <input id="sure" class="btn" type="button" value="查询"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+    </tr>
+
+</table>
+
+<table class="tbform">
+    <thead>
+    <tr>
+        <td colspan="12" class="auto-style2">&nbsp;请选择订购信息</td>
+    </tr>
     <tr>
         <td></td>
         <td>名称</td>
@@ -47,6 +71,9 @@
         <td>单价</td>
         <td>总价格</td>
     </tr>
+    </thead>
+    <tbody>
+
 
     <tr id="">
         <td><input type="checkbox"></td>
@@ -79,8 +106,7 @@
 
     <tr>
         <td colspan="12" style="text-align: center;padding: 10px;">
-            <input id="sure" class="btn" type="button" value="确定"/>
-            <input id="cancle" class="btn" type="button" value="取消"/>
+            <input id="sureOrder" class="btn" type="button" value="下单"/>
         </td>
     </tr>
     </tbody>
