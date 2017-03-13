@@ -17,7 +17,7 @@ import java.util.List;
 @Repository
 public interface OrderDao {
 
-    public void addOrder(Order order);
+    void addOrder(Order order);
 
     void addOrderDetail(@Param("beans")List<OrderDetail> orderDetailList);
 
@@ -26,4 +26,6 @@ public interface OrderDao {
     List<Order> getOrderList(OrderVo orderVo);
 
     List<OrderDTO> getOrderDTOList(OrderVo orderVo);
+
+    int getId();
 }

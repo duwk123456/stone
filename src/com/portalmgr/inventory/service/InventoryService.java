@@ -1,8 +1,5 @@
 package com.portalmgr.inventory.service;
 
-import com.portalmgr.common.ClientConstantPool;
-import com.portalmgr.common.CommonContext;
-import com.portalmgr.common.UserSessionInfo;
 import com.portalmgr.inventory.dao.InventoryDao;
 import com.portalmgr.inventory.entity.Inventory;
 import com.portalmgr.inventory.entity.InventoryVo;
@@ -16,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -47,20 +45,25 @@ public class InventoryService {
     public int  updateInventory(HttpServletRequest request){
 
         String type = request.getParameter("type");//1是进货 2是售出
-        //String jsonStr= request.getParameter("jsonStr");
-        String jsonStr= hh();
+        String jsonStr= request.getParameter("jsonStr");
+        String userId=request.getParameter("userId");
+       // String jsonStr= hh();
         List<Inventory>  inventoryList = (List<Inventory>) GsonTools.getObjects(jsonStr, Inventory.class);
 
-        UserSessionInfo   userSessionInfo = (UserSessionInfo) CommonContext.getSessionValue(ClientConstantPool.SESSION_KEY, request);
+        //   userSessionInfo = (UserSessionInfo) CommonContext.getSessionValue(ClientConstantPool.SESSION_KEY, request);
         //String userId= userSessionInfo.getUserId()+"";
-        String userId="3";
+        //String userId="3";
         //第一步 插入订单表
         Order order = new Order();
         order.setCreateUserId(userId);
         order.setType(type);
+        order.setOrderSeq(new Date().getTime()+"");
         orderDao.addOrder(order);
+        int id = orderDao.getId();
+        order.setOrderId(id);
         System.out.println(order.getOrderId());
         OrderDetail orderDetail =null;
+
         List<OrderDetail> orderDetailList = new ArrayList<OrderDetail>();
         if("1".equals(type)){
             //入库
@@ -93,7 +96,7 @@ public class InventoryService {
             orderDao.addOrderDetail(orderDetailList);
         }
 
-        return order.getOrderId();
+        return id;
 
 
 

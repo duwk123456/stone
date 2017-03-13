@@ -14,7 +14,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="../Styles/chur.css" />
+
 
     <title></title>
     <style>
@@ -28,7 +28,6 @@
 <script>
     var home = "${home}";
 </script>
-<script type="text/javascript" src="../Scripts/chur-alert.1.0.js"></script>
-
+<
 
 </html>

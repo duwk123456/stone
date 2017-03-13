@@ -49,6 +49,8 @@
         <td colspan="6" style="text-align: center;padding: 10px">
             <input id="sure" class="btn" type="button" value="查询"/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <input id="sureOrder" class="btn" type="button" value="下单"/>
         </td>
     </tr>
 
@@ -61,7 +63,6 @@
     </tr>
     <tr>
         <td></td>
-        <td>名称</td>
         <td>形状</td>
         <td>宽度(m)</td>
         <td>长度(m)</td>
@@ -72,10 +73,10 @@
         <td>总价格</td>
     </tr>
     </thead>
-    <tbody>
+    <tbody id="tbody">
 
 
-    <tr id="">
+<%--    <tr id="">
         <td><input type="checkbox"></td>
         <td>某某某某某某某</td>
         <td>圆形</td>
@@ -102,20 +103,22 @@
         <td><span>200.0</span></td>
 
 
-    </tr>
+    </tr>--%>
 
-    <tr>
-        <td colspan="12" style="text-align: center;padding: 10px;">
-            <input id="sureOrder" class="btn" type="button" value="下单"/>
-        </td>
-    </tr>
+
     </tbody>
 
 </table>
+<div id="pageBar"  style="padding-left: 20%; text-align: center;width: 50%;"></div>
 </body>
 <script src="Scripts/jquery-1.7.2.js"></script>
 <script src="js/biz/common.js"></script>
 <script src="js/layer/layer.js"></script>
 <script src="js/page/pageBar_curr.js"></script>
+<script src="js/biz/fui.min.js"></script>
+<script>
+    var userId = $.fui.store.get("userId");
+</script>
+<script src="js/json2.js"></script>
 <script src="js/biz/stoneOrder.js"></script>
 </html>

@@ -4,10 +4,14 @@
 
 
 
-    <insert id="addOrder"  parameterType="Order" useGeneratedKeys="true" keyProperty="orderId">
-     INSERT INTO `t_order` ( `create_user_id`, `create_time`,type)
-     VALUES (#{createUserId}, now(),#{type});
+
+    <insert id="addOrder"  parameterType="Order"  useGeneratedKeys="true" keyProperty="orderId">
+     INSERT INTO `t_order` ( `create_user_id`, `create_time`,type,order_seq)
+     VALUES (#{createUserId}, now(),#{type},#{orderSeq})
     </insert>
+<select id="getId" resultType="int">
+    select max(order_id) from t_order
+</select>
 
     <insert id="addOrderDetail">
         INSERT INTO t_order_detail ( order_id, inventory_id, num, price)

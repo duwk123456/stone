@@ -12,12 +12,24 @@ import java.util.List;
 public class Order implements Serializable {
 
     private int orderId;
+    private String orderSeq;
     private String type;
     private String createUserId;
     private String userName;
     private String saleType;
     private String saleTypeStr;
     private String createTime;
+
+
+
+
+    public String getOrderSeq() {
+        return orderSeq;
+    }
+
+    public void setOrderSeq(String orderSeq) {
+        this.orderSeq = orderSeq;
+    }
 
     public String getCreateTime() {
         return createTime;

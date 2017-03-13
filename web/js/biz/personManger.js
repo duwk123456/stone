@@ -4,7 +4,7 @@ $(function(){
 });
 
 
-
+var uid;
 function bindEvent(){
 	//查询
 	$("#sure").off("click").on("click",function(){
@@ -83,11 +83,24 @@ function freshData(total,rows, pageNumber){
 }
 
 function deleteData(id){
+	uid=id;
+	var param={};
+	param={
+		msg:"确认删除吗？",
+		sure:'确定',
+		cancle:'取消',
+		sureCallBack:del
+	}
+	dialogConfirm(param);
 
+}
 
-	$.post(home+"/userController/updateUser.forward",{userId:id,status:0},function(data){
+function del(){
+
+	$.post(home+"/userController/updateUser.forward",{userId:uid,status:0},function(data){
 		if(data.results.success){
-			alert(data.results.msg);
+
+			dialog("删除成功");
 			freshData(null,10,1);
 		}else{
 			alert(data.results.msg);
@@ -95,5 +108,4 @@ function deleteData(id){
 
 	},"json");
 }
-
 

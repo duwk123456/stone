@@ -6,6 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String id=request.getParameter("orderId");
+%>
 <html>
 <head>
     <title>售后服务</title>
@@ -29,15 +32,10 @@
         <td class="tdl" style="text-align: center">
 
             <form>
-                <label><input name="service" type="radio" value=""/> 送清洗剂 </label>
+                <label><input name="service" type="radio" value="0" checked="checked"/> 送清洗剂 </label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <label><input name="service" type="radio" value=""/> 1年内店员上门清洗 </label>
+                <label><input name="service" type="radio" value="1"/> 1年内店员上门清洗 </label>
             </form>
-            <%--<input type="radio" radiogroup="group1">送清洗剂--%>
-        </td>
-        <%--<td class="tdl">--%>
-        <%--<input type="radio" radiogroup="group1">1年内店员上门清洗--%>
-        <%--</td>--%>
     </tr>
 
     <tr>
@@ -51,5 +49,36 @@
 
     </tbody>
 </table>
+<script src="Scripts/jquery-1.7.2.js"></script>
+<script src="js/biz/common.js"></script>
+<script src="js/layer/layer.js"></script>
+<script>
+    var id=<%=id%>;
+    var serid;
+    $(function () {
+
+
+        $("#sure").off("click").on("click", function () {
+
+            $("input[name='service']:radio:checked").each(function(){
+                serid=$(this).val();
+            });
+            var param={};
+            param.saleType=serid;
+            param.orderId=id;
+            $.post(home+'/orderController/updateOrder.forward',param,function(data){
+                if(data.results.success){
+                    dialog("添加成功");
+                }else{
+                    dialog("添加失败");
+                }
+
+            });
+        });
+
+    });
+
+
+</script>
 </body>
 </html>

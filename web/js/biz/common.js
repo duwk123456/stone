@@ -87,3 +87,33 @@ function isNum(obj, decimalPlaces, allowNegative) {
 
     obj.val(temp);
 }
+
+function dialogConfirm(dialogInfo) {
+    var btnInfo = {};
+    if (dialogInfo.cancle == undefined) {
+        btnInfo.btn = [dialogInfo.sure];
+    }
+    else {
+        btnInfo.btn = [dialogInfo.sure, dialogInfo.cancle]
+    }
+
+
+    var msgDialog = layer.confirm(dialogInfo.msg,
+        btnInfo //按钮--确定和取消
+        , function () {
+
+            if (dialogInfo.sureCallBack) {
+
+                dialogInfo.sureCallBack();
+
+            }
+            layer.close(msgDialog);
+
+        }, function () {
+
+            if (dialogInfo.cancelCallBack) {
+                dialogInfo.cancelCallBack();
+            }
+            layer.close(msgDialog);
+        });
+}
