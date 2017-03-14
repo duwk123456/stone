@@ -89,16 +89,32 @@ function freshData(total,rows, pageNumber){
 function deleteData(id){
 
 
+
+}
+var id;
+function deleteData(uid){
+	id=uid;
+	var param={};
+	param={
+		msg:"确认删除吗？",
+		sure:'确定',
+		cancle:'取消',
+		sureCallBack:del
+	}
+	dialogConfirm(param);
+
+}
+
+function del(){
 	$.post(home+"/userController/updateUser.forward",{userId:id,status:0},function(data){
 		if(data.results.success){
-			alert(data.results.msg);
+			dialog("删除成功");
 			freshData(null,10,1);
 		}else{
-			alert(data.results.msg);
+			dialog("删除失败");
 		}
 
 	},"json");
 }
-
 
 

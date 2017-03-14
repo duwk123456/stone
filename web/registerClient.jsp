@@ -30,9 +30,9 @@
 <jsp:include page="common.jsp"></jsp:include>
 <div class="warp">
     <!--头部开始-->
-    <div class="top_c">
+<%--    <div class="top_c">
         <div class="top-nav" id=""></div>
-    </div>
+    </div>--%>
     <!--头部结束-->
     <table class="tbform">
 

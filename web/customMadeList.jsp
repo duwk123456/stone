@@ -76,6 +76,7 @@
 <div id="pageBar"  style="padding-left: 20%; text-align: center;width: 50%;"></div>
 </body>
 <script src="Scripts/jquery-1.7.2.js"></script>
+<script src="js/layer/layer.js"></script>
 <script src="js/biz/common.js"></script>
 <script src="js/page/pageBar_curr.js"></script>
 <script src="js/biz/fui.min.js"></script>

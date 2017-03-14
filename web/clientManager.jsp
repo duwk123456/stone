@@ -88,6 +88,7 @@
 
 </body>
 <script src="Scripts/jquery-1.7.2.js"></script>
+<script src="js/layer/layer.js"></script>
 <script src="js/biz/common.js"></script>
 <script src="js/biz/stoneOrder.js"></script>
 <script src="js/page/pageBar_curr.js"></script>
