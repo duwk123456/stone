@@ -1,17 +1,28 @@
 package com.portalmgr.order.entity;
 
+import com.portalmgr.common.CommBean;
+
 /**
  * @author duwk
  * @Description
  * @Date 2017-03-02 16:05
  **/
-public class OrderVo {
+public class OrderVo extends CommBean{
 
     private String beginTime;
     private String endTime;
 
     private String type;
     private String userId;
+    private String orderId;
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
 
     public String getUserId() {
         return userId;

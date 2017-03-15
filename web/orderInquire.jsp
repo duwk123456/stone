@@ -10,7 +10,7 @@
 <%
     //    String userId = request.getParameter("userId");
 //    request.setAttribute("userId", userId);
-
+    String type = request.getParameter("type");
 %>
 <html>
 <head>
@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="Styles/ui-lightness/jquery-ui-1.8.22.custom.css"/>
     <link rel="stylesheet" type="text/css" href="Styles/formui.css"/>
     <link rel="stylesheet" type="text/css" href="js/layer/skin/layer.css">
+    <link rel="stylesheet" type="text/css" href="js/page/pageBar_curr.css">
 
     <style type="text/css">
         td {
@@ -34,114 +35,64 @@
 <jsp:include page="common.jsp"></jsp:include>
 <div class="alert alert-info">当前位置<b class="tip"></b>业务查询<b class="tip"></b>订单查询</div>
 <table class="tbform">
-
-    <tbody>
+    <thead>
     <tr>
-        <td colspan="4" style="text-align: left;">订单号:201703031455</td>
-        <td colspan="6" style="text-align: left;">日期:2017-03-02</td>
+        <td  class="auto-style2">&nbsp;查询条件</td>
     </tr>
+    </thead>
     <tr>
-        <td>名称</td>
-        <td>形状</td>
-        <td>宽度(m)</td>
-        <td>长度(m)</td>
-        <td>高度(m)</td>
-        <td>数量</td>
-        <td>单价</td>
-        <td>总价格</td>
-    </tr>
-    <tr id="">
-        <td>某某某某某某某</td>
-        <td>圆形</td>
-        <td>10.1</td>
-        <td>2.0</td>
-        <td>1.2</td>
-        <td>2</td>
-        <td id="unitPice_id">100.0</td>
-        <td id="allPrice_id"><span>200.0</span></td>
-
-    </tr>
-    <tr>
-        <td>某某</td>
-        <td>圆形</td>
-        <td>10.1</td>
-        <td>2.0</td>
-        <td>1.2</td>
-        <td>2</td>
-        <td>100.0</td>
-        <td><span>200.0</span></td>
-    </tr>
-    <tr>
-        <td>某某</td>
-        <td>圆形</td>
-        <td>10.1</td>
-        <td>2.0</td>
-        <td>1.2</td>
-        <td>2</td>
-        <td>100.0</td>
-        <td><span>200.0</span></td>
-    </tr>
-
-
-    <tr>
-        <td colspan="4" style="text-align: left;">订单号:201703031455</td>
-        <td colspan="6" style="text-align: left;">日期:2017-03-02</td>
-    </tr>
-    <tr>
-        <td>名称</td>
-        <td>形状</td>
-        <td>宽度(m)</td>
-        <td>长度(m)</td>
-        <td>高度(m)</td>
-        <td>数量</td>
-        <td>单价</td>
-        <td>总价格</td>
-    </tr>
-    <tr>
-        <td>某某某某某某某</td>
-        <td>圆形</td>
-        <td>10.1</td>
-        <td>2.0</td>
-        <td>1.2</td>
-        <td>2</td>
-        <td>100.0</td>
-        <td><span>200.0</span></td>
-    </tr>
-    <tr>
-        <td>某某</td>
-        <td>圆形</td>
-        <td>10.1</td>
-        <td>2.0</td>
-        <td>1.2</td>
-        <td>2</td>
-        <td>100.0</td>
-        <td><span>200.0</span></td>
-    </tr>
-    <tr>
-        <td>某某</td>
-        <td>圆形</td>
-        <td>10.1</td>
-        <td>2.0</td>
-        <td>1.2</td>
-        <td>2</td>
-        <td>100.0</td>
-        <td><span>200.0</span></td>
-    </tr>
-
-    <tr>
-        <td colspan="12" style="text-align: right;padding: 10px 0">
-            <a href="">上一页</a>
-            <input type="text" oninput="isNum($(this),0, false)" style="width: 50px;">
-            <input type="button" value="Go">
-            <a href="">下一页</a>
+        <td class="tdl">形状:</td>
+        <td class="detail">
+            <input type="text" class="ipt" id="shape"/>
+        </td>
+        <td class="tdl">价格</td>
+        <td class="detail">
+            <input type="text" class="ipt" id="price" oninput="isNum($(this),1, false)"/>
         </td>
     </tr>
-    </tbody>
+
+    <tr>
+        <td colspan="6" style="text-align: center;padding: 10px">
+            <input id="sure" class="btn" type="button" value="查询"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <input id="exportOrder" class="btn" type="button" value="导出"/>
+        </td>
+    </tr>
 
 </table>
 
+<table class="tbform">
+    <thead>
+    <tr>
+        <td>订单号</td>
+        <td>下单时间</td>
+        <td>下单人</td>
+        <td id="sale">售后服务</td>
+        <td >操作</td>
+    </tr>
+    </thead>
+    <tbody id="tbody">
+
+
+
+
+    </tbody>
+
+</table>
+<div id="pageBar"  style="padding-left: 20%; text-align: center;width: 50%;"></div>
 </body>
 <script src="Scripts/jquery-1.7.2.js"></script>
 <script src="js/biz/common.js"></script>
-<script src="js/biz/stoneOrder.js"></script>
-</html>
+<script src="js/layer/layer.js"></script>
+<script src="js/page/pageBar_curr.js"></script>
+<script src="js/biz/fui.min.js"></script>
+<script>
+    var userId = $.fui.store.get("userId");
+    var userType = $.fui.store.get("userType");
+    var type=<%=type%>;
+    if(type==1){
+        $("#sale").css("display","none");
+    }
+</script>
+<script src="js/biz/orderList.js"></script>

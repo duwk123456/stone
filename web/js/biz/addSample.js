@@ -46,10 +46,9 @@ function bindClick() {
 
         $.post(home+'/productController/addProduct.forward',param,function(data){
             if(data.results.success){
-
-                alert(data.results.msg);
+                dialog("添加成功");
             }else{
-                alert(data.results.msg);
+                dialog("添加失败");
             }
 
         });

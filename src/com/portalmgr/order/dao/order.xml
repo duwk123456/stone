@@ -27,8 +27,28 @@
 
     <select id="getOrderList" parameterType="OrderVo" resultMap="OrderMap">
 
-        SELECT a.order_id, DATE_FORMAT(a.create_time,'%Y-%m-%d %H:%i:%s') create_time,
+        SELECT a.order_id, DATE_FORMAT(a.create_time,'%Y-%m-%d %H:%i:%s') create_time, a.order_seq,a.sale_type,
         su.user_name from t_order a LEFT  JOIN   sm_user su on su.user_id=a.create_user_id
+        WHERE  1=1
+        <if test="beginTime!=null and beginTime!=''">
+            and  a.create_time &gt; STR_TO_DATE(#{beginTime}, '%Y-%m-%d %H:%i:%s')
+        </if>
+
+        <if test="endTime!=null and endTime!=''">
+            and  a.create_time &lt; STR_TO_DATE(#{endTime}, '%Y-%m-%d %H:%i:%s')
+        </if>
+        <if test="type!=null and type!=''">
+            and  a.type=#{type}
+        </if>
+        <if test="userId!=null and userId!=''">
+            and  a.create_user_id=#{userId}
+        </if>
+        order by order_id DESC
+        limit #{beginRowNum},#{rows}
+    </select>
+
+    <select id="getOrderCnt" parameterType="OrderVo" resultType="int">
+        SELECT count(*) from t_order a
         WHERE  1=1
         <if test="beginTime!=null and beginTime!=''">
             and  a.create_time &gt; STR_TO_DATE(#{beginTime}, '%Y-%m-%d %H:%i:%s')
@@ -47,15 +67,19 @@
 
     <resultMap id="OrderMap" type="Order">
         <id property="orderId" column="order_id" />
+        <result property="orderSeq" column="order_seq" />
         <result property="userName" column="user_name" />
+        <result property="saleType" column="sale_type"/>
         <result property="createTime" column="create_time" />
+<!--
         <collection property="orderDetails" ofType="OrderDetail" column="order_id" select="getOrderDetail"></collection>
+-->
     </resultMap>
 
-    <select id="getOrderDetail" resultMap="OrderDetailMap">
-        SELECT  a.price,a.num,b.width,b.length,b.height,b.shape from t_order_detail a
+    <select id="getOrderDetail" resultMap="OrderDetailMap" parameterType="OrderVo">
+        SELECT  a.price,a.num,b.width,b.length,b.height,b.shape,a.price*a.num as totalPrice from t_order_detail a
         LEFT JOIN  t_inventory b on a.inventory_id=b.inventory_id
-        where order_id=#{order_id}
+        where order_id=#{orderId}
     </select>
     <resultMap id="OrderDetailMap" type="OrderDetail">
         <result property="price" column="price" />

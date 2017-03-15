@@ -57,10 +57,9 @@ function bindClick() {
 
         $.post(home+'/userController/addUser.forward',userInfo,function(data){
             if(data.results.success){
-
-                alert(data.results.msg);
+                dialog("添加成功");
             }else{
-                alert(data.results.msg);
+                dialog("添加失败");
             }
 
         });

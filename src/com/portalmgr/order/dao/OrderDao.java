@@ -28,4 +28,8 @@ public interface OrderDao {
     List<OrderDTO> getOrderDTOList(OrderVo orderVo);
 
     int getId();
+
+    List<OrderDetail> getOrderDetail(OrderVo orderVo);
+
+    int getOrderCnt(OrderVo orderVo);
 }

@@ -35,7 +35,9 @@ function update() {
 
 		var data = jsonStr.results;
 		if(data.success){
-			alert("成功");
+
+				dialog("更新成功");
+
 		}
 
 	},"json");

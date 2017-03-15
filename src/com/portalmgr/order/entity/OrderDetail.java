@@ -14,7 +14,15 @@ public class OrderDetail extends BaseInfo implements Serializable{
     private String orderId;
     private String inventoryId;
     private int num;
+    private String totalPrice;
 
+    public String getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(String totalPrice) {
+        this.totalPrice = totalPrice;
+    }
 
     public String getOrderId() {
         return orderId;

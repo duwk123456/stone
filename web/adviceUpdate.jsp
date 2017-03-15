@@ -91,10 +91,9 @@
             param.feedbackId=feedbackId
             $.post(home+'/feedBackController/updateFeedBack.forward',param,function(data){
                 if(data.results.success){
-
-                    alert(data.results.msg);
+                    dialog("更新成功");
                 }else{
-                    alert(data.results.msg);
+                    dialog("更新失败");
                 }
 
             });

@@ -100,7 +100,7 @@
             $("#salary").val(data.results.data.salary);
             $("#job").val(data.results.data.job);
         }else{
-          alert(data.results.msg);
+            dialog("读取个人信息失败");
         }
 
     });
@@ -119,10 +119,9 @@
 
             $.post(home+'/userController/updateUser.forward',userInfo,function(data){
                 if(data.results.success){
-
-                    alert(data.results.msg);
+                    dialog("更新成功");
                 }else{
-                    alert(data.results.msg);
+                    dialog("更新失败");
                 }
 
             });

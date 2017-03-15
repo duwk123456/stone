@@ -4,6 +4,7 @@ import com.portalmgr.common.BaseController;
 import com.portalmgr.common.ResultEntity;
 import com.portalmgr.order.entity.Order;
 import com.portalmgr.order.entity.OrderDTO;
+import com.portalmgr.order.entity.OrderDetail;
 import com.portalmgr.order.entity.OrderVo;
 import com.portalmgr.order.service.OrderService;
 import com.portalmgr.util.GsonTools;
@@ -62,26 +63,22 @@ public class OrderController extends BaseController {
 
 	@RequestMapping(value="/getOrderList")
 	@ResponseBody
-	public ResultEntity  getOrderList(HttpServletRequest request,HttpServletResponse response,OrderVo orderVo){
+	public void  getOrderList(HttpServletRequest request,HttpServletResponse response,OrderVo orderVo){
 		ResultEntity resultEntity = new ResultEntity();
 		try{
+			orderVo.setStartRow();
+			int total = orderService.getOrderCnt(orderVo);
 			List<Order> orderList = orderService.getOrderList(orderVo);
-
+            resultEntity.setProperty("total",total);
 			resultEntity.setMsg("查询订单成功");
 			resultEntity.setSuccess(true);
 			resultEntity.setData(orderList);
-
-
-			//new GsonBuilder().registerTypeAdapter(Dataset.class, new DatasetTypeAdapter()).create();
-
 		}catch(Exception e){
 			e.printStackTrace();
 			resultEntity.setSuccess(false);
 			resultEntity.setMsg("服务异常");
 		}
-
-		return resultEntity;
-		//GsonTools.writeJsonObj(response, resultEntity);
+		GsonTools.writeJsonObj(response, resultEntity);
 	}
 
 
@@ -102,7 +99,28 @@ public class OrderController extends BaseController {
 	}
 
 
+	@RequestMapping(value="/getOrderDetail")
+	@ResponseBody
+	public void  getOrderDetail(HttpServletRequest request,HttpServletResponse response,OrderVo orderVo){
+		ResultEntity resultEntity = new ResultEntity();
+		try{
+			List<OrderDetail> orderList = orderService.getOrderDetail(orderVo);
 
+			resultEntity.setMsg("查询订单成功");
+			resultEntity.setSuccess(true);
+			resultEntity.setData(orderList);
+
+
+			//new GsonBuilder().registerTypeAdapter(Dataset.class, new DatasetTypeAdapter()).create();
+
+		}catch(Exception e){
+			e.printStackTrace();
+			resultEntity.setSuccess(false);
+			resultEntity.setMsg("服务异常");
+		}
+
+		GsonTools.writeJsonObj(response, resultEntity);
+	}
 
 
 

@@ -40,12 +40,13 @@ function bindClick() {
 
 
         $.post(home+'/customMadeController/addCustomMade.forward',param,function(data){
-            if(data.results.success){
 
-                alert(data.results.msg);
-            }else{
-                alert(data.results.msg);
-            }
+
+                if(data.results.success){
+                    dialog("添加成功");
+                }else{
+                    dialog("添加失败");
+                }
 
         });
 

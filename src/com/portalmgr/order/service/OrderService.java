@@ -3,6 +3,7 @@ package com.portalmgr.order.service;
 import com.portalmgr.order.dao.OrderDao;
 import com.portalmgr.order.entity.Order;
 import com.portalmgr.order.entity.OrderDTO;
+import com.portalmgr.order.entity.OrderDetail;
 import com.portalmgr.order.entity.OrderVo;
 import org.springframework.stereotype.Service;
 
@@ -31,5 +32,12 @@ public class OrderService {
 
     public List<OrderDTO> getOrderDTOList(OrderVo orderVo) {
         return  orderDao.getOrderDTOList(orderVo);
+    }
+
+    public List<OrderDetail> getOrderDetail(OrderVo orderVo) {
+        return orderDao.getOrderDetail(orderVo);
+    }
+    public int getOrderCnt(OrderVo orderVo) {
+        return orderDao.getOrderCnt(orderVo);
     }
 }

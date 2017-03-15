@@ -36,14 +36,13 @@
                 <a class="one">库存管理</a>
                 <ul class="kid">
                     <li><b class="tip"></b><a target="Conframe" href="inventoryManagement.jsp">库存列表</a></li>
-                    <li><b class="tip"></b><a target="Conframe" href="inventoryManagement.jsp">进货管理</a></li>
                 </ul>
             </div>
             <div>
                 <a class="one">业务查询</a>
                 <ul class="kid">
-                    <li><b class="tip"></b><a target="Conframe" href="orderInquire.jsp">订单查询</a></li>
-                    <li><b class="tip"></b><a target="Conframe" href="Template/form-collapse.html">进货单查询</a></li>
+                    <li><b class="tip"></b><a target="Conframe" href="orderInquire.jsp?type=2">订购查询</a></li>
+                    <li><b class="tip"></b><a target="Conframe" href="orderInquire.jsp?type=1">进货查询</a></li>
                 </ul>
             </div>
             <div>

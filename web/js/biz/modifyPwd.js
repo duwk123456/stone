@@ -4,7 +4,7 @@
 
 $(function () {
     bindClick();
-    alert(userId);
+
 });
 function bindClick() {
 
@@ -33,9 +33,9 @@ function bindClick() {
 
         $.post(home+"/userController/updatePwd.forward",{password:pwd.val(),newPwd:newPwd.val(),userId:userId},function(data){
             if(data.results.success){
-                alert("密码修改成功");
+                dialog("密码修改成功");
             }else{
-                alert(data.results.msg);
+                dialog("密码修改失败");
             }
         },"json");
 

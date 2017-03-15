@@ -22,6 +22,7 @@
         <if test="shape!=null and shape!=''">
             and  a.shape like  "%"#{shape}"%"
         </if>
+        order by a.custom_made_id desc
         limit #{beginRowNum},#{rows}
     </select>
 

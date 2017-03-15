@@ -21,7 +21,7 @@
         <if test="endTime!=null and endTime!=''">
             and  a.create_time &lt; STR_TO_DATE(#{endTime}, '%Y-%m-%d %H:%i:%s')
         </if>
-
+        order by a.notice_id desc
         limit #{beginRowNum},#{rows}
     </select>
 

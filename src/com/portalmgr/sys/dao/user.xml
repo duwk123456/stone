@@ -19,6 +19,7 @@
         <if test="tel!=null and tel!=''">
             and  a.tel like "%"#{tel}"%"
         </if>
+        order by a.user_id desc
         limit #{beginRowNum},#{rows}
     </select>
 
