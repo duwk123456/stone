@@ -15,12 +15,18 @@
 <html>
 <head>
     <title>订单查询</title>
-    <link rel="stylesheet" type="text/css" href="Styles/admin-all.css"/>
-    <link rel="stylesheet" type="text/css" href="Styles/base.css"/>
-    <link rel="stylesheet" type="text/css" href="Styles/ui-lightness/jquery-ui-1.8.22.custom.css"/>
-    <link rel="stylesheet" type="text/css" href="Styles/formui.css"/>
-    <link rel="stylesheet" type="text/css" href="js/layer/skin/layer.css">
-    <link rel="stylesheet" type="text/css" href="js/page/pageBar_curr.css">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/Styles/admin-all.css"/>
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/Styles/base.css"/>
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/Styles/ui-lightness/jquery-ui-1.8.22.custom.css"/>
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/Styles/formui.css"/>
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/js/layer/skin/layer.css">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/js/page/pageBar_curr.css">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/Styles/admin-all.css" />
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/Styles/base.css"/>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/Scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/Scripts/jquery-ui-1.8.22.custom.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/Styles/ui-lightness/jquery-ui-1.8.22.custom.css" />
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/Styles/formui.css"/>
 
     <style type="text/css">
         td {
@@ -42,7 +48,11 @@
     </thead>
     <tr>
         <td class="tdl">下单时间:</td>
-
+        <td colspan="5">
+        <input class="ipt datepicker" size="16" type="text"  id="beginTime"/>
+        <span class="add-on"><i class="icon-calendar"></i></span>至
+        <input class="ipt  datepicker" size="16" type="text" id="endTime"/><span class="add-on"><i class="icon-calendar"></i></span>
+        </td>
     </tr>
 
     <tr>
@@ -77,6 +87,7 @@
 <div id="pageBar"  style="padding-left: 20%; text-align: center;width: 50%;"></div>
 </body>
 <script src="Scripts/jquery-1.7.2.js"></script>
+<script  type="text/javascript" src="js/My97DatePicker/WdatePicker.js"></script>
 <script src="js/biz/common.js"></script>
 <script src="js/layer/layer.js"></script>
 <script src="js/page/pageBar_curr.js"></script>
