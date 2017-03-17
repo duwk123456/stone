@@ -14,12 +14,12 @@ function bindEvent(){
     $("#exportOrder").off("click").on("click",function(){
         var params={};
         var str="?";
-        str+"type="+type;
+        str+="type="+type;
         if(userType==2){
-            str+"&userId="+userId;
+            str+="&userId="+userId;
         }
-        str+"&beginTime"+$("#beginTime").val();
-        str+"&endTime"+$("#endTime").val();
+        str+="&beginTime="+$("#beginTime").val();
+        str+="&endTime="+$("#endTime").val();
 
 
         window.location.href=home+"/orderController/exportReport.forward"+str;

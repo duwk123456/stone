@@ -25,12 +25,16 @@ function init(){
 function update() {
 	var userInfo={};
 
+
+	if(!(/^1[3|4|5|8][0-9]\d{4,8}$/.test($("#tel").val()))){
+		dialog("不是完整的11位手机号或者正确的手机号前七位");
+		return false;
+	}
+
 	userInfo.userName=$("#userName").val();
 	userInfo.tel=$("#tel").val();
 	userInfo.addr=$("#addr").val();
 	userInfo.userId=userId;
-
-
 	$.post(home+"/userController/updateUser.forward",userInfo,function(jsonStr){
 
 		var data = jsonStr.results;

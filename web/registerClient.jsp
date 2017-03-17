@@ -99,5 +99,7 @@
 <script src="js/biz/fui.min.js"></script>
 <script src="Scripts/jquery.spritely-0.6.js"></script>
 <script src="Scripts/chur.min.js"></script>
-
+<script src="js/layer/layer.js"></script>
+<script src="js/biz/common.js"></script>
+<script src="js/biz/registerClient.js"></script>
 </html>

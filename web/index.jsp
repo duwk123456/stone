@@ -1,4 +1,5 @@
 ﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 
 %>
@@ -12,6 +13,8 @@
     <link rel="stylesheet" type="text/css" href="Styles/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="Styles/ui-lightness/jquery-ui-1.8.22.custom.css"/>
     <script src="Scripts/jquery-1.7.2.js"></script>
+    <script src="js/biz/fui.min.js"></script>
+
 </head>
 <body>
 <jsp:include page="common.jsp"></jsp:include>
@@ -26,31 +29,44 @@
         <h1>系统操作菜单</h1>
 
         <div class="acc">
-            <div>
+
+            <div id="aa">
                 <a class="one">石材订购</a>
                 <ul class="kid">
                     <li><b class="tip"></b><a target="Conframe" href="stoneOrder.jsp">石材订购</a></li>
                 </ul>
             </div>
-            <div>
+     <%--       </c:if>--%>
+
+            <div id="bb">
                 <a class="one">库存管理</a>
                 <ul class="kid">
-                    <li><b class="tip"></b><a target="Conframe" href="inventoryManagement.jsp">库存列表</a></li>
+                    <li><b class="tip"></b><a target="Conframe" href="inventoryManagement.jsp">库存管理</a></li>
                 </ul>
             </div>
-            <div>
+
+
+            <div >
                 <a class="one">业务查询</a>
                 <ul class="kid">
-                    <li><b class="tip"></b><a target="Conframe" href="orderInquire.jsp?type=2">订购查询</a></li>
-                    <li><b class="tip"></b><a target="Conframe" href="orderInquire.jsp?type=1">进货查询</a></li>
+
+                    <li id="cc_1"><b class="tip"></b><a target="Conframe" href="orderInquire.jsp?type=2">订购查询</a></li>
+
+
+                    <li id="cc_2"><b class="tip"></b><a target="Conframe" href="orderInquire.jsp?type=1">进货查询</a></li>
+
                 </ul>
             </div>
             <div>
                 <a class="one">通知栏</a>
                 <ul class="kid">
-                    <li><b class="tip"></b><a target="Conframe" href="notice.jsp">通知</a></li>
+
+                    <li id="dd_1"><b class="tip"></b><a target="Conframe" href="notice.jsp">通知</a></li>
+
                     <li><b class="tip"></b><a target="Conframe" href="noticeList.jsp">通知列表</a></li>
-                    <li><b class="tip"></b><a target="Conframe" href="advice.jsp">意见箱</a></li>
+
+                    <li id="dd_2"><b class="tip"></b><a target="Conframe" href="advice.jsp">意见箱</a></li>
+
                     <li><b class="tip"></b><a target="Conframe" href="adviceList.jsp">意见箱列表</a></li>
                 </ul>
             </div>
@@ -68,20 +84,23 @@
                     <li><b class="tip"></b><a target="Conframe" href="modifyPwd.jsp">密码修改</a></li>
                 </ul>
             </div>
-            <div>
+
+            <div id="ee">
                 <a class="one">人事档案管理</a>
                 <ul class="kid">
                     <li><b class="tip"></b><a target="Conframe" href="personnelManager.jsp">员工档案</a></li>
                     <li><b class="tip"></b><a target="Conframe" href="clientManager.jsp">客户档案</a></li>
                 </ul>
             </div>
-            <div>
+
+            <div  id="ff">
                 <a class="one">样品资料管理</a>
                 <ul class="kid">
                     <li><b class="tip"></b><a target="Conframe" href="addSample.jsp">添加样品</a></li>
                     <li><b class="tip"></b><a target="Conframe" href="sampleList.jsp">样品列表</a></li>
                 </ul>
             </div>
+
             <%--<div id="datepicker"></div>--%>
         </div>
 
@@ -108,5 +127,29 @@
 <script src="Scripts/chur.min.js"></script>
 <script src="js/biz/common.js"></script>
 <script src="Scripts/index.js"></script>
+<script>
+    var userId = $.fui.store.get("userId");
+    var userType = $.fui.store.get("userType");
+    if(userType==1){
+        $("#aa").hide();
+        $("#dd_2").hide();
+
+    }
+    if(userType==2){
+        $("#bb").hide();
+        $("#cc_2").hide();
+        $("#dd_1").hide();
+        $("#ee").hide();
+        $("#ff").hide();
+    }
+
+    if(userType==3){
+
+        $("#dd_1").hide();
+        $("#ee").hide();
+        $("#ff").hide();
+
+    }
+</script>
 
 </html>

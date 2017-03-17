@@ -41,14 +41,8 @@
     </tr>
     </thead>
     <tr>
-        <td class="tdl">形状:</td>
-        <td class="detail">
-            <input type="text" class="ipt" id="shape"/>
-        </td>
-        <td class="tdl">价格</td>
-        <td class="detail">
-            <input type="text" class="ipt" id="price" oninput="isNum($(this),1, false)"/>
-        </td>
+        <td class="tdl">下单时间:</td>
+
     </tr>
 
     <tr>
@@ -87,6 +81,7 @@
 <script src="js/layer/layer.js"></script>
 <script src="js/page/pageBar_curr.js"></script>
 <script src="js/biz/fui.min.js"></script>
+
 <script>
     var userId = $.fui.store.get("userId");
     var userType = $.fui.store.get("userType");

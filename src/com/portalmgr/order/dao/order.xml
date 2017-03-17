@@ -92,7 +92,7 @@
 
 
     <select id="getOrderDTOList" resultType="OrderDTO">
-        select d.user_name,a.order_id,DATE_FORMAT(a.create_time,'%Y-%m-%d %H:%i:%s') create_time,b.num,b.price,c.width,c.height,c.length,c.shape from t_order a
+        select d.user_name,a.order_seq,DATE_FORMAT(a.create_time,'%Y-%m-%d %H:%i:%s') create_time,b.num,b.price,c.width,c.height,c.length,c.shape from t_order a
                                 LEFT JOIN t_order_detail b on a.order_id=b.order_id
                                 LEFT JOIN t_inventory c on b.inventory_id=c.inventory_id
                                 LEFT JOIN sm_user d on  d.user_id=a.create_user_id

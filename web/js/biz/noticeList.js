@@ -45,8 +45,12 @@ function showData(result,page,rows){
 				__html.push("<tr id='Tr_" + dataList[_idx].noticeId + "' val='" + dataList[_idx].noticeId + "'>");
 				__html.push("<td>" + dataList[_idx].noticeContent + "</td>");
 				__html.push("<td>" + dataList[_idx].createTime + "</td>");
-				__html.push("<td style='text-align:center;'><a   target='Conframe' href='noticeUpdate.jsp?noticeId="+dataList[_idx].noticeId+"'>修改</a>&nbsp;|&nbsp;");
-				__html.push("<a href='javascript:void(0);' onclick=\"deleteData('" + dataList[_idx].noticeId + "');return false;\">删除</a>&nbsp;");
+				__html.push("<td style='text-align:center;'>")
+				if(userType==1) {
+					__html.push("<td style='text-align:center;'><a   target='Conframe' href='noticeUpdate.jsp?noticeId=" + dataList[_idx].noticeId + "'>修改</a>&nbsp;|&nbsp;");
+					__html.push("<a href='javascript:void(0);' onclick=\"deleteData('" + dataList[_idx].noticeId + "');return false;\">删除</a>&nbsp;");
+				}
+				__html.push("</td>");
             	__html.push("</tr>");
 			}	
 		}

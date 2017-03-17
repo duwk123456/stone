@@ -74,6 +74,7 @@
 <script src="js/biz/fui.min.js"></script>
 <script type="text/javascript" src="Scripts/jquery-ui-1.8.22.custom.min.js"></script>
 <script type="text/javascript" src="Scripts/tb.js"></script>
+<script src="js/layer/layer.js"></script>
 <script src="js/biz/common.js"></script>
 <script>
   var userId = $.fui.store.get("userId");

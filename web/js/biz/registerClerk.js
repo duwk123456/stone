@@ -37,6 +37,18 @@ function bindClick() {
             dialog("登录账号不能为空!");
             return false;
         }
+
+        if(!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(tel.val()))){
+            dialog("不是完整的11位手机号或者正确的手机号前七位");
+            return false;
+        }
+
+        var reg = new RegExp("^[0-9]+(.[0-9]{1,2})?$");
+        if(!reg.test(salary.val())){
+            dialog("薪资必须是整数或者包含1、2位小数的数值");
+            return false;
+        }
+
         if (pwd.val() == "" || surePwd.val() == "") {
             dialog("请输入密码");
             return false;
@@ -45,6 +57,8 @@ function bindClick() {
             dialog("密码确认不正确");
             return false;
         }
+
+
         var job=$("#job option:selected").val();
         var  userInfo={};
         userInfo.loginName=loginName.val();
@@ -52,8 +66,8 @@ function bindClick() {
         userInfo.userName=userName.val();
         userInfo.tel=tel.val();
         userInfo.salary=salary.val();
-        userInfo.job=job;
-        userInfo.userType=3;
+        userInfo.userType=2;
+
 
         $.post(home+'/userController/addUser.forward',userInfo,function(data){
             if(data.results.success){

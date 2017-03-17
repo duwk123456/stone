@@ -11,7 +11,7 @@ public class OrderDTO {
 
 
     @ExcelAnnotation(columnIndex = 1,columnTitle = "订单号",excelTitle = "订单明细表")
-    private  String orderId;
+    private  String orderSeq;
     @ExcelAnnotation(columnIndex = 2,columnTitle = "宽度(m)")
     private  double width;
     @ExcelAnnotation(columnIndex = 3,columnTitle = "高度(m)")
@@ -31,12 +31,12 @@ public class OrderDTO {
     private  String saleTypeStr;
 
 
-    public String getOrderId() {
-        return orderId;
+    public String getOrderSeq() {
+        return orderSeq;
     }
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
+    public void setOrderSeq(String orderId) {
+        this.orderSeq = orderId;
     }
 
     public double getWidth() {
